@@ -1,0 +1,20 @@
+{
+  "name": "FrontEndMasters_CompleteIntroToReactV5",
+  "version": "1.0.0",
+  "description": "https://frontendmasters.com/workshops/complete-intro-react-v5/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5/issues"
+  },
+  "homepage": "https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5#readme"
+}
