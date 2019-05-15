@@ -1,5 +1,5 @@
 {
-  "name": "FrontEndMasters_CompleteIntroToReactV5",
+  "name": "frontendmasters_completetntrotoreactv5",
   "version": "1.0.0",
   "description": "https://frontendmasters.com/workshops/complete-intro-react-v5/",
   "main": "index.js",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5/issues"
   },
-  "homepage": "https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5#readme"
+  "homepage": "https://github.com/HaQadosch/FrontEndMasters_CompleteIntroToReactV5#readme",
+  "dependencies": {
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
 }

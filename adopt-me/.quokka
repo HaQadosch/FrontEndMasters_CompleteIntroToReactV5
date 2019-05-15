@@ -1,0 +1,16 @@
+{
+  "babel": true,
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "jsdom-quokka-plugin",
+    "ts-node"
+  ],
+  "jsdom": {
+    "html": "<div id=\"root\">not rendered</div>"
+  }
+}
