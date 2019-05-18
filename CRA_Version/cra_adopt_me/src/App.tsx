@@ -1,17 +1,6 @@
 import React from 'react'
 import './App.css'
-
-const Pet: React.FC<{ name: string, animal: string, breed: string }> = ({ name, animal, breed }) => {
-  return React.createElement(
-    'div',
-    {},
-    [
-      React.createElement('h1', {}, name),
-      React.createElement('h2', {}, animal),
-      React.createElement('h2', {}, breed)
-    ]
-  )
-}
+import { Pet } from './Pet';
 
 export const App: React.FC = () => {
   return React.createElement(
