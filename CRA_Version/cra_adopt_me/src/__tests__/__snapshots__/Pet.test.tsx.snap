@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pet matches the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      testName
+    </h1>
+    <h2>
+      testAnimal
+    </h2>
+    <h2>
+      testBreed
+    </h2>
+  </div>
+</DocumentFragment>
+`;
