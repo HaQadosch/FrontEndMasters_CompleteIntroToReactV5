@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pet matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="search-params"
+  >
+    <form
+      action=""
+    >
+      <label
+        for="location"
+      >
+        Location
+        <input
+          id="location"
+          name="location"
+          placeholder="location"
+          type="text"
+          value="Seattle, WA"
+        />
+      </label>
+      <button
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
