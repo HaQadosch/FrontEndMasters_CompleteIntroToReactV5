@@ -2,11 +2,25 @@
   "name": "cra_adopt_me",
   "version": "0.1.0",
   "private": true,
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "trailingComma": "all"
+  },
   "dependencies": {
     "@types/jest": "^24.0.12",
     "@types/node": "^12.0.0",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
+    "husky": "^2.3.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
