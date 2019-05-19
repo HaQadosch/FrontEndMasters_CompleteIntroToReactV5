@@ -17,6 +17,7 @@ export const useDropdown = (label: string, initialValue: any, options: string[])
         onBlur={onSelectChange}
         disabled={options.length === 0}
       >
+        <option value='All'>All</option>
         {options.map((item, index) => (
           <option value={item} key={index}>
             {item}

@@ -29,6 +29,11 @@ exports[`SearchParams matches the snapshot 1`] = `
           name="Animal"
         >
           <option
+            value="All"
+          >
+            All
+          </option>
+          <option
             value="barnyard"
           >
             barnyard
@@ -78,7 +83,13 @@ exports[`SearchParams matches the snapshot 1`] = `
           disabled=""
           id="use-dropdown-breed"
           name="Breed"
-        />
+        >
+          <option
+            value="All"
+          >
+            All
+          </option>
+        </select>
       </label>
       <button
         type="submit"
