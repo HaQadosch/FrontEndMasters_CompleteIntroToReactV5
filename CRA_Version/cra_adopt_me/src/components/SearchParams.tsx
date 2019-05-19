@@ -3,7 +3,7 @@ import pet, { ANIMALS, AnimalsResponse, Animal, AnimalsParams } from '@frontendm
 import { Results } from './Results';
 import { useDropdown } from '../utils/useDropdown';
 
-export const SearchParams: React.FC = () => {
+export const SearchParams: React.FC<{ path: string }> = () => {
   const [location, setLocation] = useState<string>('Seattle, WA');
   const [breeds, setBreeds] = useState<string[]>([]);
   const [animal, setAnimal, AnimalDropdown] = useDropdown('Animal', 'all', ANIMALS);
