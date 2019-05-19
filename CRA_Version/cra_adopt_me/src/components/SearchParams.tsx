@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import pet, { ANIMALS, AnimalsResponse, Animal, AnimalsParams } from '@frontendmasters/pet';
+import { Results } from './Results';
 import { useDropdown } from '../utils/useDropdown';
 
 export const SearchParams: React.FC = () => {
@@ -13,7 +14,6 @@ export const SearchParams: React.FC = () => {
     const { animals }: AnimalsResponse = await pet.animals(requestParams);
 
     setPets(animals || []);
-    console.log({ pets });
   };
 
   useEffect(() => {
@@ -58,6 +58,7 @@ export const SearchParams: React.FC = () => {
         <BreedDropdown />
         <button type='submit'>Submit</button>
       </form>
+      <Results pets={pets} />
     </div>
   );
 };

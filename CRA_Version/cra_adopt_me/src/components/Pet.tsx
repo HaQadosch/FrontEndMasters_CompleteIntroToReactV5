@@ -1,17 +1,24 @@
 import React from 'react';
+import { Animal } from '@frontendmasters/pet';
 
-type PetProps = {
-  name: string;
-  animal: string;
-  breed: string;
-};
-
-export const Pet: React.FC<PetProps> = ({ name, animal, breed }) => {
+export const Pet: React.FC<Animal> = ({
+  id,
+  name,
+  type: animal,
+  breeds: { primary: breed },
+  photos: media,
+  contact: { address },
+}) => {
+  let hero = media.length ? media[0].small : 'http://placecorgi.com/300/300';
   return (
-    <div>
-      <h1>{name}</h1>
-      <h2>{animal}</h2>
-      <h2>{breed}</h2>
-    </div>
+    <a href={`/details/${id}`} className='pet'>
+      <div className='image-container'>
+        <img src={hero} alt={name} />
+      </div>
+      <div className='info'>
+        <h1>{name}</h1>
+        <h2>{`${animal} - ${breed} - ${address.city}, ${address.state}`}</h2>
+      </div>
+    </a>
   );
 };

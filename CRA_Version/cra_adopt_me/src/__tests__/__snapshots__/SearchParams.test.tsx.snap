@@ -97,6 +97,13 @@ exports[`SearchParams matches the snapshot 1`] = `
         Submit
       </button>
     </form>
+    <div
+      class="search"
+    >
+      <h1>
+        No pets found.
+      </h1>
+    </div>
   </div>
 </DocumentFragment>
 `;
