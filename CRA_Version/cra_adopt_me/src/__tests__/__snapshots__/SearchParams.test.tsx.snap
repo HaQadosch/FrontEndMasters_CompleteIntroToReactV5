@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pet matches the snapshot 1`] = `
+exports[`SearchParams matches the snapshot 1`] = `
 <DocumentFragment>
   <div
     class="search-params"
@@ -18,6 +18,66 @@ exports[`Pet matches the snapshot 1`] = `
           placeholder="location"
           type="text"
           value="Seattle, WA"
+        />
+      </label>
+      <label
+        for="use-dropdown-animal"
+      >
+        Animal
+        <select
+          id="use-dropdown-animal"
+          name="Animal"
+        >
+          <option
+            value="barnyard"
+          >
+            barnyard
+          </option>
+          <option
+            value="bird"
+          >
+            bird
+          </option>
+          <option
+            value="cat"
+          >
+            cat
+          </option>
+          <option
+            value="dog"
+          >
+            dog
+          </option>
+          <option
+            value="horse"
+          >
+            horse
+          </option>
+          <option
+            value="rabbit"
+          >
+            rabbit
+          </option>
+          <option
+            value="scales-fins-other"
+          >
+            scales-fins-other
+          </option>
+          <option
+            value="small-furry"
+          >
+            small-furry
+          </option>
+        </select>
+      </label>
+      <label
+        for="use-dropdown-breed"
+      >
+        Breed
+        <select
+          disabled=""
+          id="use-dropdown-breed"
+          name="Breed"
         />
       </label>
       <button

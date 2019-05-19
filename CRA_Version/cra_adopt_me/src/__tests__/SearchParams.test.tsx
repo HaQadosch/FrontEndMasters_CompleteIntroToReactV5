@@ -9,7 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-test('Pet matches the snapshot', () => {
+test('SearchParams matches the snapshot', () => {
   const { debug, asFragment } = render(<SearchParams />);
   expect(asFragment()).toMatchSnapshot();
   // debug(asFragment());
