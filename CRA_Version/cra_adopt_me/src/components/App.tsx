@@ -6,7 +6,9 @@ export const App: React.FC = () => {
   return (
     <div>
       <h1>Adopt me!</h1>
-      <SearchParams />
+      <React.StrictMode>
+        <SearchParams />
+      </React.StrictMode>
     </div>
   );
 };
