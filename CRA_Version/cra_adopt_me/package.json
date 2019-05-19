@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "react-testing-library": "^7.0.0"
   }
 }

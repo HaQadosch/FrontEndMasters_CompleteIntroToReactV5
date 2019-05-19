@@ -6,7 +6,7 @@ exports[`SearchParams matches the snapshot 1`] = `
     class="search-params"
   >
     <form
-      action=""
+      action="/"
     >
       <label
         for="location"

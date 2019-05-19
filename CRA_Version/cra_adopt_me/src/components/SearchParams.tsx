@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import pet, { ANIMALS } from '@frontendmasters/pet';
+import pet, { ANIMALS, AnimalsResponse, Animal, AnimalsParams } from '@frontendmasters/pet';
 import { useDropdown } from '../utils/useDropdown';
 
 export const SearchParams: React.FC = () => {
@@ -7,6 +7,14 @@ export const SearchParams: React.FC = () => {
   const [breeds, setBreeds] = useState<string[]>([]);
   const [animal, setAnimal, AnimalDropdown] = useDropdown('Animal', 'all', ANIMALS);
   const [breed, setBreed, BreedDropdown] = useDropdown('Breed', 'dog', breeds);
+  const [pets, setPets] = useState<Animal[]>([]);
+
+  const requestPet = async (requestParams: AnimalsParams) => {
+    const { animals }: AnimalsResponse = await pet.animals(requestParams);
+
+    setPets(animals || []);
+    console.log({ pets });
+  };
 
   useEffect(() => {
     setBreeds([]);
@@ -23,9 +31,18 @@ export const SearchParams: React.FC = () => {
   const onInputLocationChange: React.ChangeEventHandler<HTMLInputElement> = ({ target: { value } }) =>
     setLocation(value);
 
+  const onFormSubmit: React.ChangeEventHandler<HTMLFormElement> = evt => {
+    evt.preventDefault();
+    requestPet({
+      location,
+      breed,
+      type: animal,
+    });
+  };
+
   return (
     <div className='search-params'>
-      <form action=''>
+      <form action='/' onSubmit={onFormSubmit}>
         <label htmlFor='location'>
           Location
           <input
