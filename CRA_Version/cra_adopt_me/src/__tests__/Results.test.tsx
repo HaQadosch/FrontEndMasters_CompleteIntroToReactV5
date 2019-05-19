@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { render } from 'react-testing-library';
-import { Pet } from '../components/Pet';
+import { Results } from '../components/Results';
 import { Animal } from '@frontendmasters/pet';
+import 'jest';
 
 const testPet: Animal = {
   id: 44604528,
@@ -18,14 +19,14 @@ const testPet: Animal = {
     unknown: false,
   },
   colors: {
-    primary: 'null',
+    primary: null,
     secondary: null,
     tertiary: null,
   },
   age: 'Adult',
   gender: 'Male',
   size: 'Medium',
-  coat: 'null',
+  coat: null,
   attributes: {
     spayed_neutered: false,
     house_trained: false,
@@ -34,9 +35,9 @@ const testPet: Animal = {
     shots_current: true,
   },
   environment: {
-    children: false,
-    dogs: false,
-    cats: false,
+    children: null,
+    dogs: null,
+    cats: null,
   },
   tags: [],
   name: 'Russell Crow',
@@ -85,12 +86,12 @@ const testPet: Animal = {
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Pet {...testPet} />, div);
+  ReactDOM.render(<Results pets={[testPet]} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 test('Pet matches the snapshot', () => {
-  const { debug, asFragment } = render(<Pet {...testPet} />);
+  const { debug, asFragment } = render(<Results pets={[testPet]} />);
   expect(asFragment()).toMatchSnapshot();
   // debug(asFragment());
 });

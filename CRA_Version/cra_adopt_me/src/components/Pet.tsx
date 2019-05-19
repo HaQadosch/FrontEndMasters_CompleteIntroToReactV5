@@ -5,9 +5,9 @@ export const Pet: React.FC<Animal> = ({
   id,
   name,
   type: animal,
-  breeds: { primary: breed },
-  photos: media,
-  contact: { address },
+  breeds: { primary: breed } = { primary: '' },
+  photos: media = [],
+  contact: { address } = { address: { city: '', state: '' } },
 }) => {
   let hero = media.length ? media[0].small : 'http://placecorgi.com/300/300';
   return (

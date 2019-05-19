@@ -14,6 +14,7 @@ export const SearchParams: React.FC = () => {
     const { animals }: AnimalsResponse = await pet.animals(requestParams);
 
     setPets(animals || []);
+    console.log({ pets });
   };
 
   useEffect(() => {

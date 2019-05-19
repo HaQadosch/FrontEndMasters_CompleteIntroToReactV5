@@ -2,16 +2,28 @@
 
 exports[`Pet matches the snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    <h1>
-      testName
-    </h1>
-    <h2>
-      testAnimal
-    </h2>
-    <h2>
-      testBreed
-    </h2>
-  </div>
+  <a
+    class="pet"
+    href="/details/44604528"
+  >
+    <div
+      class="image-container"
+    >
+      <img
+        alt="Russell Crow"
+        src="https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/44604528/1/?bust=1556978254&width=100"
+      />
+    </div>
+    <div
+      class="info"
+    >
+      <h1>
+        Russell Crow
+      </h1>
+      <h2>
+        Bird - Chicken - Silverdale, WA
+      </h2>
+    </div>
+  </a>
 </DocumentFragment>
 `;
