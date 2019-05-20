@@ -9,7 +9,7 @@ exports[`Details matches the snapshot 1`] = `
     >
       ⌛
     </span>
-     Loading... 
+    Loading...
   </h1>
 </DocumentFragment>
 `;

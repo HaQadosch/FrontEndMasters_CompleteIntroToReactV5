@@ -1,41 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import pet, { Photo } from '@frontendmasters/pet';
+import React, { useEffect, useState, useReducer, Dispatch } from 'react';
+import pet, { Animal } from '@frontendmasters/pet';
+
+const animalReducer = (currentState: any, newState: any) => {
+  return { ...currentState, ...newState };
+};
 
 export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) => {
   const [loading, setLoading] = useState<Boolean>(true);
-  const [error, setError] = useState<Error>();
-  const [name, setName] = useState<string>('');
-  const [animal, setAnimal] = useState<string>('');
-  const [location, setLocation] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [media, setMedia] = useState<Photo[]>([]);
-  const [breed, setBreed] = useState<string>('');
+  const [, /*error*/ setError] = useState<Error>();
+
+  const [
+    {
+      name,
+      type: animal,
+      contact: {
+        address: { city, state },
+      },
+      description,
+      /*photos: media,*/ breeds: { primary: breed },
+    },
+    setState,
+  ]: [Animal, Dispatch<any>] = useReducer(animalReducer, {
+    name: '',
+    animal: '',
+    description: '',
+    media: [],
+    contact: { address: { city: '', state: '' } },
+    breeds: { primary: '' },
+  });
 
   useEffect(() => {
     pet
       .animal(parseInt(id))
-      .then(
-        ({
-          animal: {
-            name,
-            breeds: { primary },
-            type,
-            photos,
-            description,
-            contact: {
-              address: { city, state },
-            },
-          },
-        }) => {
-          setName(name);
-          setAnimal(type);
-          setLocation(`${city}, ${state}`);
-          setDescription(description);
-          setMedia(photos);
-          setBreed(primary);
-          setLoading(false);
-        },
-      )
+      .then(({ animal }) => {
+        setState(animal);
+        setLoading(false);
+      })
       .catch(petErr => setError(petErr));
   }, [id]);
 
@@ -43,14 +43,14 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
     <h1>
       <span role='img' aria-label='sand-glass'>
         ⌛
-      </span>{' '}
-      Loading...{' '}
+      </span>
+      Loading...
     </h1>
   ) : (
     <div className='details'>
       <div>
         <h1>{name}</h1>
-        <h2>{`${animal} - ${breed} - ${location}`}</h2>
+        <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
         <button>{`Adopt ${name}`}</button>
         <p>{description}</p>
       </div>

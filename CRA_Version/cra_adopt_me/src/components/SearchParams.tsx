@@ -6,7 +6,7 @@ import { useDropdown } from '../utils/useDropdown';
 export const SearchParams: React.FC<{ path: string }> = () => {
   const [location, setLocation] = useState<string>('Seattle, WA');
   const [breeds, setBreeds] = useState<string[]>([]);
-  const [animal, setAnimal, AnimalDropdown] = useDropdown('Animal', 'all', ANIMALS);
+  const [animal /*setAnimal*/, , AnimalDropdown] = useDropdown('Animal', 'all', ANIMALS);
   const [breed, setBreed, BreedDropdown] = useDropdown('Breed', 'dog', breeds);
   const [pets, setPets] = useState<Animal[]>([]);
 
