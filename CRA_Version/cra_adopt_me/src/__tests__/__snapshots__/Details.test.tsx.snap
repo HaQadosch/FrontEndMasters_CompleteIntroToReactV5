@@ -2,8 +2,14 @@
 
 exports[`Details matches the snapshot 1`] = `
 <DocumentFragment>
-  <div>
-    This is the detail page
-  </div>
+  <h1>
+    <span
+      aria-label="sand-glass"
+      role="img"
+    >
+      ⌛
+    </span>
+     Loading... 
+  </h1>
 </DocumentFragment>
 `;

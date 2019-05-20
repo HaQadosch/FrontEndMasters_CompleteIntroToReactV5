@@ -13,7 +13,7 @@ export const App: React.FC = () => {
       <React.StrictMode>
         <Router>
           <SearchParams path='/' />
-          <Details path='/details/:id' />
+          <Details path='/details/:id' id='' />
         </Router>
       </React.StrictMode>
     </div>
