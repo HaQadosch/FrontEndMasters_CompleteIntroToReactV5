@@ -1,8 +1,19 @@
 import React, { useEffect, useState, useReducer, Dispatch } from 'react';
-import pet, { Animal } from '@frontendmasters/pet';
+import pet, { Animal, Address, Breeds } from '@frontendmasters/pet';
 
-const animalReducer = (currentState: any, newState: any) => {
-  return { ...currentState, ...newState };
+type DetailsAnimal = Pick<Animal, 'name' | 'type' | 'description'> &
+  Pick<Address, 'city' | 'state'> &
+  Pick<Breeds, 'primary'>;
+
+const animalReducer = (currentState: DetailsAnimal, newState: Animal): DetailsAnimal => {
+  const {
+    contact: {
+      address: { city, state },
+    },
+    breeds: { primary },
+    ...restState
+  } = newState;
+  return { ...currentState, ...restState, city, state, primary };
 };
 
 export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) => {
@@ -12,21 +23,23 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
   const [
     {
       name,
-      type: animal,
-      contact: {
-        address: { city, state },
-      },
+      type,
+      city,
+      state,
       description,
-      /*photos: media,*/ breeds: { primary: breed },
+      /*photos: media,*/
+
+      primary: breed,
     },
     setState,
-  ]: [Animal, Dispatch<any>] = useReducer(animalReducer, {
+  ]: [DetailsAnimal, Dispatch<Animal>] = useReducer(animalReducer, {
     name: '',
-    animal: '',
+    type: '',
     description: '',
-    media: [],
-    contact: { address: { city: '', state: '' } },
-    breeds: { primary: '' },
+    // media: [],
+    city: '',
+    state: '',
+    primary: '',
   });
 
   useEffect(() => {
@@ -50,7 +63,7 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
     <div className='details'>
       <div>
         <h1>{name}</h1>
-        <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
+        <h2>{`${type} - ${breed} - ${city}, ${state}`}</h2>
         <button>{`Adopt ${name}`}</button>
         <p>{description}</p>
       </div>
