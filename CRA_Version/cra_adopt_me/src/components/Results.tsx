@@ -9,5 +9,3 @@ export const Results: React.FC<{ pets: Animal[] }> = ({ pets }) => {
     </div>
   );
 };
-
-export default Results;

@@ -63,5 +63,3 @@ export const SearchParams: React.FC<{ path: string }> = () => {
     </div>
   );
 };
-
-export default SearchParams;

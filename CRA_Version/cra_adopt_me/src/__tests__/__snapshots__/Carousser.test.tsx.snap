@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Caroussel matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="carousel"
+  >
+    <img
+      alt="active pet"
+      src="http://placecorgi.com/600/600"
+    />
+    <div
+      class="carousel-smaller"
+    >
+      <img
+        alt="small pet"
+        class="active"
+        src="http://placecorgi.com/300/300"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

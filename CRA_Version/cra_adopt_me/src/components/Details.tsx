@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useReducer, Dispatch } from 'react';
 import pet, { Animal, Address, Breeds } from '@frontendmasters/pet';
+import { Caroussel } from './Caroussel';
 
-type DetailsAnimal = Pick<Animal, 'name' | 'type' | 'description'> &
+type DetailsAnimal = Pick<Animal, 'name' | 'type' | 'description' | 'photos'> &
   Pick<Address, 'city' | 'state'> &
   Pick<Breeds, 'primary'>;
 
@@ -20,23 +21,14 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
   const [loading, setLoading] = useState<Boolean>(true);
   const [, /*error*/ setError] = useState<Error>();
 
-  const [
-    {
-      name,
-      type,
-      city,
-      state,
-      description,
-      /*photos: media,*/
-
-      primary: breed,
-    },
-    setState,
-  ]: [DetailsAnimal, Dispatch<Animal>] = useReducer(animalReducer, {
+  const [{ name, type, city, state, description, photos, primary: breed }, setState]: [
+    DetailsAnimal,
+    Dispatch<Animal>
+  ] = useReducer(animalReducer, {
     name: '',
     type: '',
     description: '',
-    // media: [],
+    photos: [],
     city: '',
     state: '',
     primary: '',
@@ -61,6 +53,7 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
     </h1>
   ) : (
     <div className='details'>
+      <Caroussel photos={photos} />
       <div>
         <h1>{name}</h1>
         <h2>{`${type} - ${breed} - ${city}, ${state}`}</h2>
@@ -70,5 +63,3 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
     </div>
   );
 };
-
-export default Details;
