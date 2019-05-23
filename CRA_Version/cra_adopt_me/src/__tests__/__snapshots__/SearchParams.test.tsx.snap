@@ -92,6 +92,7 @@ exports[`SearchParams matches the snapshot 1`] = `
         </select>
       </label>
       <button
+        style="background-color: green;"
         type="submit"
       >
         Submit
