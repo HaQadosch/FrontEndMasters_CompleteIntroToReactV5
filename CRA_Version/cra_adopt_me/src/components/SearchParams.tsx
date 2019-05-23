@@ -14,9 +14,7 @@ export const SearchParams: React.FC<{ path: string }> = () => {
 
   const requestPet = async (requestParams: AnimalsParams) => {
     const { animals }: AnimalsResponse = await pet.animals(requestParams);
-
     setPets(animals || []);
-    console.log({ pets });
   };
 
   useEffect(() => {
@@ -43,6 +41,10 @@ export const SearchParams: React.FC<{ path: string }> = () => {
     });
   };
 
+  const onThemeSelectChange: React.ChangeEventHandler<HTMLSelectElement> = ({ target: { value } }) => {
+    setTheme(value);
+  };
+
   return (
     <div className='search-params'>
       <form action='/' onSubmit={onFormSubmit}>
@@ -59,6 +61,14 @@ export const SearchParams: React.FC<{ path: string }> = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
+        <label htmlFor='theme'>
+          Theme
+          <select name='theme' id='theme' value={theme} onChange={onThemeSelectChange} onBlur={onThemeSelectChange}>
+            <option value='pere'>peru</option>
+            <option value='#bada55'>bada55</option>
+            <option value='mediumorchid'>medium orchid</option>
+          </select>
+        </label>
         <button type='submit' style={{ backgroundColor: theme }}>
           Submit
         </button>

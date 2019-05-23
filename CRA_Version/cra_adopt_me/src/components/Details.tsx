@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useReducer, Dispatch } from 'react';
+import React, { useEffect, useState, useReducer, Dispatch, useContext } from 'react';
 import pet, { Animal, Address, Breeds } from '@frontendmasters/pet';
 import { Caroussel } from './Caroussel';
+import { ThemeContext } from './ThemeContext';
 
 type DetailsAnimal = Pick<Animal, 'name' | 'type' | 'description' | 'photos'> &
   Pick<Address, 'city' | 'state'> &
@@ -20,6 +21,7 @@ const animalReducer = (currentState: DetailsAnimal, newState: Animal): DetailsAn
 export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) => {
   const [loading, setLoading] = useState<Boolean>(true);
   const [, /*error*/ setError] = useState<Error>();
+  const [theme /*, setTheme*/] = useContext<(string | any)[]>(ThemeContext);
 
   const [{ name, type, city, state, description, photos, primary: breed }, setState]: [
     DetailsAnimal,
@@ -57,7 +59,7 @@ export const Details: React.FC<{ path: string; id?: string }> = ({ id = '' }) =>
       <div>
         <h1>{name}</h1>
         <h2>{`${type} - ${breed} - ${city}, ${state}`}</h2>
-        <button>{`Adopt ${name}`}</button>
+        <button style={{ backgroundColor: theme }}>{`Adopt ${name}`}</button>
         <p>{description}</p>
       </div>
     </div>

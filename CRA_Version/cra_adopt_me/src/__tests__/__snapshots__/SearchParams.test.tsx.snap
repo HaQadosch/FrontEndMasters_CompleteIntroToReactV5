@@ -91,6 +91,31 @@ exports[`SearchParams matches the snapshot 1`] = `
           </option>
         </select>
       </label>
+      <label
+        for="theme"
+      >
+        Theme
+        <select
+          id="theme"
+          name="theme"
+        >
+          <option
+            value="pere"
+          >
+            peru
+          </option>
+          <option
+            value="#bada55"
+          >
+            bada55
+          </option>
+          <option
+            value="mediumorchid"
+          >
+            medium orchid
+          </option>
+        </select>
+      </label>
       <button
         style="background-color: green;"
         type="submit"
